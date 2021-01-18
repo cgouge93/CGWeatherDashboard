@@ -15,22 +15,30 @@ h2 {
   display:inline-block
 }
 
+span {
+  color:white;
+  padding:0.5%;
+}
 .favorable {
   background-color:rgb(0, 173, 0);
+ 
 }
 
 .moderate {
   background-color:yellow;
+  color:black;
+
 }
 
 .high {
-  background-color:orangered
+  background-color:orangered;
 }
 .severe {
-  background-color:red
+  background-color:red;
+  
 }
 
 .extreme {
   background-color:indigo;
-  color:white
+  
 }
