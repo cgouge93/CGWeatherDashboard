@@ -20,26 +20,40 @@
 </head>
 <body>
     <div class="jumbotron bg-dark">
-        <h2 class="text-center text-light">Weather Dashboard</h2>
+        <h1 class="text-center text-light">Weather Dashboard</h1>
     </div>
     
-    <div class="container">
-
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-3" id="cityContainer">
-                <div class="container">
+            <div class="col-12 col-md-3 p-2 search-column">
+                <form  id="city-search">
                    <h3>Search for a City:</h3> 
                    <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="City name" aria-label="City name" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                        <input type="text" id="city" autofocus="true" class="form-control" placeholder="City name" aria-label="City name">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                   </div>
+                </form>
+                <div class="past-search border" id="past-search-buttons"></div>
+            </div>
+            <div class="col-12 col md-9">
+                <div class="row border selected-city" id="current-conditions">
+                    <div class="col-12">
+                        <h2 id="current-city"></h2>
+                        <div id="current-conditions-container" class="list-group"></div>
                     </div>
-                  </div>
+                </div>
+                <div class="row border" id="five-day">
+                    <h2 class="col-12" id="forecast"></h2>
+                    <div class="d-flex" id="five-day-container"></div>
                 </div>
             </div>
-
-
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
