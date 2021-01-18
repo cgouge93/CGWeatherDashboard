@@ -1,3 +1,5 @@
+$(document).ready(function () {
+    
 // Display current weather
 function searchCurrentWeather(city) {
     var city = $("#city").val().trim()
@@ -120,12 +122,6 @@ function getFiveDay(city) {
 
 
 
-
-
-
-
-
-
 // Click event for search button
 $("#run-search").on("click", function(event) {
     // This line allows us to take advantage of the HTML "submit" property
@@ -134,4 +130,6 @@ $("#run-search").on("click", function(event) {
     event.preventDefault();
     searchCurrentWeather(city);
     getFiveDay(city);
+
   });
+});

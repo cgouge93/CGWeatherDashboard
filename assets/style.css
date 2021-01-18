@@ -14,7 +14,12 @@
   text-align: center;
 }
 
-
+#citySideBar {
+  background:#EF8354;
+  border-radius:10px;
+  color:white;
+  text-align: center;
+}
 #cityContainer {
   margin-right: auto;
   background:#4F5D75;
@@ -81,4 +86,8 @@ span {
 .extreme {
   background-color:indigo;
   
+}
+
+h5 {
+  margin-top:5%
 }
