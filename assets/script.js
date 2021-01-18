@@ -12,7 +12,9 @@ function searchCurrentWeather(city) {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-var cityName = response.name
+var today = moment().format("l")
+var cityName = response.name + " (" + today + ")"
+
 var currentIconCode = response.weather[0].icon
 var iconURL = "http://openweathermap.org/img/w/" + currentIconCode + ".png"
 var temperatureF =  (response.main.temp - 273.15) * 1.80 + 32;
@@ -55,6 +57,36 @@ $.ajax({
 });
 }
 
+function getFiveDay(city) {
+    var city = $("#city").val().trim()
+    var APIKey = "6c07134d45d67e2aa2498bb5c00f8693"
+    var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
+ 
+   // Logging the URL so we have access to it for troubleshooting
+  console.log(fiveQueryURL)
+  $.ajax({
+    url: fiveQueryURL,
+    method: "GET"
+  }).then(function(response) {
+    $("#forecast").text("5-Day Forecast");
+    $("#five-day-container").text("")
+
+    var forecast = response.list;
+        for(var i=5; i < forecast.length; i=i+8){
+            var dailyForecast = forecast[i]
+
+            var forecastEl=document.createElement("div");
+            forecastEl.classList = "card bg-primary text-light m-2";
+
+            // date element
+            var forecastDate = document.createElement("h5")
+            forecastDate.textContent = moment.unix(dailyForecast.dt).format("MMM D, YYYY");
+            forecastDate.classLIst = "card-header text-center"
+            forecastEl.appendChild(forecastDate)
+        }
+});
+
+}
 
 
 
@@ -71,4 +103,5 @@ $("#run-search").on("click", function(event) {
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
     searchCurrentWeather(city);
+    getFiveDay(city);
   });
