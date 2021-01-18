@@ -11,33 +11,25 @@ function searchCurrentWeather(city) {
     method: "GET"
   }).then(function(response) {
 var currentInfo = JSON.stringify(response);
-var currentWeatherDiv = $("<div>");
-  currentWeatherDiv.className = "row border selected-city";
 
 
 var cityName = response.name
-currentWeatherDiv.prepend("<h2>"+ cityName +"</h2>")
+$("#current-city").text( cityName )
 
 var currentIconCode = response.weather[0].icon
 var iconURL = "http://openweathermap.org/img/w/" + currentIconCode + ".png"
 $("#wicon").attr("src", iconURL)
 
-var temperature = response.main.temp
-currentWeatherDiv.prepend("<p>Temperature: " + temperature + "</p>")
-console.log(temperature)
+var temperatureF =  (response.main.temp - 273.15) * 1.80 + 32;
+$("#current-city-temp").html("<p>Temperature: " + temperatureF.toFixed(1) + "&deg; F</p>")
 
 var humidity = response.main.humidity
-currentWeatherDiv.prepend("<p>Humidity: " + humidity + "</p>")
+$("#current-city-humidity").html("<p>Humidity: " + humidity + "%</p>")
 
 var windSpeed = response.wind.speed
-currentWeatherDiv.prepend("<p>Wind Speed: " + windSpeed + " MPH")
+$("#current-city-wind").html("<p>Wind Speed: " + windSpeed + " MPH")
 
-var UVIndex = response.name
-var nameEl = $("<h2></h2>").text(name)
-bandDiv.prepend(nameEl)
 
-// Note: Append actual HTML elements, not just text
-$("#current-conditions").prepend(currentWeatherDiv)
   });
 }
 

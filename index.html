@@ -37,12 +37,16 @@
                 </form>
                 <div class="past-search border" id="past-search-buttons"></div>
             </div>
-            <div class="col-12 col md-9">
+            <div class="col-9 col md-9">
                 <div class="row border selected-city" id="current-conditions">
                     <div class="col-12">
                         <h2 id="current-city"></h2>
-                        <div id="icon"><img id="wicon" src="" alt="Weather Icon"></div>
-                        <div id="current-conditions-container" class="list-group"></div>
+                        <img id="wicon">
+                        <div id="current-conditions-container" class="list-group">
+                          <div id="current-city-temp"></div>
+                          <div id="current-city-humidity"></div>
+                          <div id="current-city-wind"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row border" id="five-day">

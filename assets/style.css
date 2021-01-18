@@ -7,3 +7,10 @@
 #cityContainer {
   margin-right: auto;
 }
+
+#wicon {
+  float: inline-end;
+}
+h2 {
+  display:inline-block
+}
