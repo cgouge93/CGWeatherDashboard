@@ -73,7 +73,7 @@ function getFiveDay(city) {
     $("#five-day-container").text("")
 
     var forecast = response.list;
-        for(var i=5; i < forecast.length; i=i+8){
+        for(var i=6; i < forecast.length; i=i+8){
             var dailyForecast = forecast[i]
 
             var forecastEl=document.createElement("div");
