@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="jumbotron bg-dark">
-        <h1 class="text-center text-light">Weather Dashboard</h1>
+        <h1 class="text-center text-light"><i class="fas fa-cloud-sun"></i>  Weather Dashboard</h1>
     </div>
     
     <div class="container-fluid">
@@ -31,7 +31,7 @@
                    <div class="input-group mb-3">
                         <input type="text" id="city" autofocus="true" class="form-control" placeholder="City name" aria-label="City name">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-primary" type="submit" id="run-search"><i class="fas fa-search"></i></button>
                         </div>
                    </div>
                 </form>
@@ -41,6 +41,7 @@
                 <div class="row border selected-city" id="current-conditions">
                     <div class="col-12">
                         <h2 id="current-city"></h2>
+                        <div id="icon"><img id="wicon" src="" alt="Weather Icon"></div>
                         <div id="current-conditions-container" class="list-group"></div>
                     </div>
                 </div>
@@ -51,9 +52,8 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <script src="/assets/script.js"></script>
 </body>
 </html>
