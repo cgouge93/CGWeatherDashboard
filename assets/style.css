@@ -14,3 +14,23 @@
 h2 {
   display:inline-block
 }
+
+.favorable {
+  background-color:rgb(0, 173, 0);
+}
+
+.moderate {
+  background-color:yellow;
+}
+
+.high {
+  background-color:orangered
+}
+.severe {
+  background-color:red
+}
+
+.extreme {
+  background-color:indigo;
+  color:white
+}
