@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <!-- Link to jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- Link to fontawesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  
+
+    <!-- Link to external style sheet -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+    <div class="jumbotron bg-dark">
+        <h2 class="text-center text-light">Weather Dashboard</h2>
+    </div>
+    
+    <div class="container">
+
+        <div class="row">
+            <div class="col-3" id="cityContainer">
+                <div class="container">
+                   <h3>Search for a City:</h3> 
+                   <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="City name" aria-label="City name" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
