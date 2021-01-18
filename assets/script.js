@@ -16,7 +16,7 @@ var today = moment().format("l")
 var cityName = response.name + " (" + today + ")"
 
 var currentIconCode = response.weather[0].icon
-var iconURL = "http://openweathermap.org/img/w/" + currentIconCode + ".png"
+var iconURL = "http://openweathermap.org/img/wn/" + currentIconCode + "@2x.png"
 var temperatureF =  (response.main.temp - 273.15) * 1.80 + 32;
 var humidity = response.main.humidity
 var windSpeed = response.wind.speed
@@ -29,6 +29,7 @@ $("#current-city-humidity").html("<p>Humidity: " + humidity + "%</p>")
 $("#current-city-temp").html("<p>Temperature: " + temperatureF.toFixed(1) + "&deg; F</p>")
 $("#current-city").text( cityName )
 $("#wicon").attr("src", iconURL)
+
 
  console.log(indexQueryURL)
 // API call for current UV index
@@ -60,7 +61,7 @@ $.ajax({
 function getFiveDay(city) {
     var city = $("#city").val().trim()
     var APIKey = "6c07134d45d67e2aa2498bb5c00f8693"
-    var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
+    var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
  
    // Logging the URL so we have access to it for troubleshooting
   console.log(fiveQueryURL)
@@ -76,13 +77,42 @@ function getFiveDay(city) {
             var dailyForecast = forecast[i]
 
             var forecastEl=document.createElement("div");
-            forecastEl.classList = "card bg-primary text-light m-2";
+            forecastEl.classList = "card text-light m-2 col-md-2 col-sm-12 forecast";
 
             // date element
             var forecastDate = document.createElement("h5")
-            forecastDate.textContent = moment.unix(dailyForecast.dt).format("MMM D, YYYY");
+            forecastDate.textContent = moment.unix(dailyForecast.dt).format("l");
             forecastDate.classLIst = "card-header text-center"
             forecastEl.appendChild(forecastDate)
+
+            //create an image element
+       var weatherIcon = document.createElement("img")
+       var iconCode = dailyForecast.weather[0].icon;
+       var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
+       weatherIcon.classList = "card-img";
+       weatherIcon.setAttribute("src",  iconURL);  
+
+       //append to forecast card
+       forecastEl.appendChild(weatherIcon);
+       
+       //create temperature span
+       var forecastTempEl=document.createElement("span");
+       forecastTempEl.classList = "card-body";
+       forecastTempEl.textContent = "Temp: " + dailyForecast.main.temp + " °F";
+
+        //append to forecast card
+        forecastEl.appendChild(forecastTempEl);
+
+       var forecastHumEl=document.createElement("span");
+       forecastHumEl.classList = "card-body";
+       forecastHumEl.textContent = "Humidity: " + dailyForecast.main.humidity + "  %";
+
+       //append to forecast card
+       forecastEl.appendChild(forecastHumEl);   
+
+        // console.log(forecastEl);
+       //append to five day container
+        $("#five-day-container").append(forecastEl);
         }
 });
 

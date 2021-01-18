@@ -1,24 +1,38 @@
  body{
-   background-image: url("/assets/images/bodyBG.jpg");
-   background-size:cover;
+   background:#4F5D75
  } 
 .jumbotron {
   padding:0.5%;
   border-radius:0;
-  background:rgb(255, 123, 0) !important;
+  background:#2D3142 !important;
 }
 
 #city-search{
-  background:white;
+  background:#EF8354;
   border-radius:10px;
+  color:white;
+  text-align: center;
 }
+
+
 #cityContainer {
   margin-right: auto;
-  background:white;
+  background:#4F5D75;
+  border-radius:10px;
+}
+
+.btn-primary {
+  background-color:#BFC0C0;
+  border:none !important;
+  color:#EF8354;
 }
 #current-conditions, #five-day{
-  background:white;
-  padding-bottom:2.5%
+  background:#4F5D75;
+  padding-bottom:2.5%;
+  width:75%;
+  color:white;
+  border-radius:10px;
+
 }
 #wicon {
   float: inline-end;
@@ -30,6 +44,20 @@ h3 {
 span {
   color:white;
   padding:0.5%;
+  
+}
+.card-body {
+  padding:10%;
+  width:auto;
+  border:none !important;
+  background-color: #EF8354 !important;
+
+}
+
+.card {
+  background-color: #EF8354 !important;
+  width:12em;
+
 }
 .favorable {
   background-color:rgb(0, 173, 0);

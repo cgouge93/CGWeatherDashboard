@@ -26,7 +26,7 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-3 p-2 search-column">
+            <div class="col-12 col-md-3 p-2 search-column mt-2">
                 <form  id="city-search">
                    <h3>Search for a City:</h3> 
                    <div class="input-group mb-3">
@@ -36,10 +36,10 @@
                         </div>
                    </div>
                 </form>
-                <div class="past-search border" id="past-search-buttons"></div>
+                <div class="past-search" id="past-search-buttons"></div>
             </div>
-            <div class="col-9 col md-9 mt-5">
-                <div class="row border selected-city" id="current-conditions">
+            <div class="col-9 col md-9">
+                <div class="row  selected-city" id="current-conditions">
                     <div class="col-12">
                         <h3 id="current-city"></h3>
                         <img id="wicon">
@@ -51,9 +51,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row border mt-3" id="five-day">
+                <div class="row  mt-3" id="five-day">
                     <h3 class="col-12" id="forecast"></h3>
-                    <div class="d-flex" id="five-day-container"></div>
+                    <div class="d-flex" id="five-day-container">
+                      <div id="day-1-temp"></div>
+                    </div>
                 </div>
             </div>
         </div>
