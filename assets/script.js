@@ -150,8 +150,10 @@ $.ajax({
        forecastTempEl.classList = "card-body";
        forecastTempEl.textContent = "Temp: " + dailyForecast.main.temp + " °F";
 
+
         //append to forecast card
         forecastEl.appendChild(forecastTempEl);
+      
 
        var forecastHumEl=document.createElement("span");
        forecastHumEl.classList = "card-body";

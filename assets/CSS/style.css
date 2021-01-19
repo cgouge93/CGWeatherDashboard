@@ -85,3 +85,7 @@ h4{
 .forecast {
   width:13em
 }
+
+span.card-body {
+  padding:0;
+}
