@@ -157,7 +157,7 @@ $.ajax({
 
        var forecastHumEl=document.createElement("span");
        forecastHumEl.classList = "card-body";
-       forecastHumEl.textContent = "Humidity: " + dailyForecast.main.humidity + "  %";
+       forecastHumEl.textContent = "Humidity: " + dailyForecast.main.humidity + "%";
 
        //append to forecast card
        forecastEl.appendChild(forecastHumEl);   
