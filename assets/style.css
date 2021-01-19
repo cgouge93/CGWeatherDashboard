@@ -14,15 +14,15 @@
   text-align: center;
 }
 
+
 .city-button{
   width:100%;
   background:#4F5D75;
   color:white;
   border:none;
-  border-radius:10px;
-  margin-bottom:5%;
+  margin-bottom:0.5%;
   font-weight: bold;
-  font-size:1.5em;
+  font-size:1em;
 }
 
 #citySideBar {
