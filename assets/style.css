@@ -8,14 +8,25 @@
 }
 
 #city-search{
-  background:#EF8354;
+  background:#EC6E4C;
   border-radius:10px;
   color:white;
   text-align: center;
 }
 
+.city-button{
+  width:100%;
+  background:#4F5D75;
+  color:white;
+  border:none;
+  border-radius:10px;
+  margin-bottom:5%;
+  font-weight: bold;
+  font-size:1.5em;
+}
+
 #citySideBar {
-  background:#EF8354;
+  background:#EC6E4C;
   border-radius:10px;
   color:white;
   text-align: center;
@@ -29,7 +40,7 @@
 .btn-primary {
   background-color:#BFC0C0;
   border:none !important;
-  color:#EF8354;
+  color:#EC6E4C;
 }
 #current-conditions, #five-day{
   background:#4F5D75;
@@ -66,25 +77,29 @@ span {
 }
 .favorable {
   background-color:rgb(0, 173, 0);
- 
+ border-radius:10px;
 }
 
 .moderate {
   background-color:yellow;
   color:black;
+  border-radius:10px
 
 }
 
 .high {
   background-color:orangered;
+  border-radius:10px
 }
 .severe {
   background-color:red;
+  border-radius:10px
   
 }
 
 .extreme {
   background-color:indigo;
+  border-radius:10px
   
 }
 

@@ -1,8 +1,65 @@
+let citiesSearched = []
 $(document).ready(function () {
+const city = "";
+const searchHistoryList = document.querySelector("#searchHistoryList");
+
+
+    // function to add buttons for recent searches
+function renderButtons() {
+    searchHistoryList.innerHTML = "";
+    $('#searchHistoryList').empty();
+    for (var i = 0; i < citiesSearched.length; i++) {
+        var a = $("<button>") 
+        a.addClass("city-button shadow p-3 rounded");
+        a.attr("data-name", citiesSearched[i]);
+        var buttonText = citiesSearched[i].charAt(0).toUpperCase() + citiesSearched[i].slice(1)
+        a.text(buttonText);
+        $("#searchHistoryList").append(a)
+        
+        }
+    }
+// function to display weather of previously searched city
+$(document).on('click', '.city-button', function() {
+    searchCurrentWeather($(this).text());
+});    
+
+
+
+    renderButtons();
+
+
+$("#run-search").on("click", function(event) {
+    event.preventDefault();
+    var city = $("#city").val().trim();
+    city = city.charAt(0).toUpperCase() + city.slice(1);
+    searchCurrentWeather(city);
+    $("#searchHistoryList").on("click"), function(event) {
+        event.preventDefault();
+        var city = $(this).text()
+        searchCurrentWeather(city);
+    }
+
+    citiesSearched.push(city);
+    city.value="";
+    function storesearchedCities() {
+        localStorage.setItem("citiesSearched", JSON.stringify(citiesSearched));
+    }
     
-// Display current weather
+    function init() {
+        const storedsearchedCities = JSON.parse(
+        localStorage.getItem("citiesSearched")
+        );
+    
+        searchedCities = storedsearchedCities
+    } 
+    init();
+    storesearchedCities();
+    renderButtons();
+});
+
+
+// Function to display current & 5 day weather
 function searchCurrentWeather(city) {
-    var city = $("#city").val().trim()
     var APIKey = "6c07134d45d67e2aa2498bb5c00f8693"
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
  
@@ -16,7 +73,6 @@ function searchCurrentWeather(city) {
   }).then(function(response) {
 var today = moment().format("l")
 var cityName = response.name + " (" + today + ")"
-
 var currentIconCode = response.weather[0].icon
 var iconURL = "http://openweathermap.org/img/wn/" + currentIconCode + "@2x.png"
 var temperatureF =  (response.main.temp - 273.15) * 1.80 + 32;
@@ -24,7 +80,8 @@ var humidity = response.main.humidity
 var windSpeed = response.wind.speed
 var lat = response.coord.lat;
 var long = response.coord.lon;
-var indexQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + long + "&appid=" + APIKey
+var indexQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + long + "&appid=" + APIKey;
+var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
 
 $("#current-city-wind").html("<p>Wind Speed: " + windSpeed + " MPH")
 $("#current-city-humidity").html("<p>Humidity: " + humidity + "%</p>")
@@ -57,16 +114,8 @@ $.ajax({
     }
     $("#current-city-UV").append(UVIndexValue)
   });
-});
-}
 
-function getFiveDay(city) {
-    var city = $("#city").val().trim()
-    var APIKey = "6c07134d45d67e2aa2498bb5c00f8693"
-    var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
- 
-   // Logging the URL so we have access to it for troubleshooting
-  console.log(fiveQueryURL)
+  // API call for 5 day forecast
   $.ajax({
     url: fiveQueryURL,
     method: "GET"
@@ -115,21 +164,22 @@ function getFiveDay(city) {
         // console.log(forecastEl);
        //append to five day container
         $("#five-day-container").append(forecastEl);
-        }
+         }
+  });
 });
 
+
+}
+
+// function getFiveDay(city) {
+//     var APIKey = "6c07134d45d67e2aa2498bb5c00f8693"
+//     var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
+ 
+//    // Logging the URL so we have access to it for troubleshooting
+//   console.log(fiveQueryURL)
+  
 }
 
 
 
-// Click event for search button
-$("#run-search").on("click", function(event) {
-    // This line allows us to take advantage of the HTML "submit" property
-    // This way we can hit enter on the keyboard and it registers the search
-    // (in addition to clicks). Prevents the page from reloading on form submit.
-    event.preventDefault();
-    searchCurrentWeather(city);
-    getFiveDay(city);
-
-  });
-});
+);
