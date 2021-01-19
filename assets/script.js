@@ -18,8 +18,8 @@ function renderButtons() {
     searchHistoryList.innerHTML = "";
     $('#searchHistoryList').empty();
     for (var i = 0; i < citiesSearched.length; i++) {
-        var a = $("<button>") 
-        a.addClass("city-button shadow p-3 rounded");
+        var a = $("<li>") 
+        a.addClass("city-button list-group-item d-block");
         a.attr("data-name", citiesSearched[i]);
         var buttonText = citiesSearched[i].charAt(0).toUpperCase() + citiesSearched[i].slice(1)
         a.text(buttonText);
@@ -70,7 +70,7 @@ function searchCurrentWeather(city) {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-var today = moment().format("l")
+var today = moment().format("dddd l")
 var cityName = response.name + " (" + today + ")"
 var currentIconCode = response.weather[0].icon
 var iconURL = "http://openweathermap.org/img/wn/" + currentIconCode + "@2x.png"
@@ -84,7 +84,7 @@ var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city 
 
 $("#current-city-wind").html("<p>Wind Speed: " + windSpeed + " MPH")
 $("#current-city-humidity").html("<p>Humidity: " + humidity + "%</p>")
-$("#current-city-temp").html("<p>Temperature: " + temperatureF.toFixed(1) + "&deg; F</p>")
+$("#current-city-temp").html("<p>Temperature: " + temperatureF.toFixed(1) + " &deg;F</p>")
 $("#current-city").text( cityName )
 $("#wicon").attr("src", iconURL)
 
@@ -119,7 +119,7 @@ $.ajax({
     url: fiveQueryURL,
     method: "GET"
   }).then(function(response) {
-    $("#forecast").text("5-Day Forecast");
+    $("#forecast").text("5-Day Forecast:");
     $("#five-day-container").text("")
 
     var forecast = response.list;
@@ -127,11 +127,11 @@ $.ajax({
             var dailyForecast = forecast[i]
 
             var forecastEl=document.createElement("div");
-            forecastEl.classList = "card text-light m-2 col-md-2 col-sm-12 forecast";
+            forecastEl.classList = "card text-light m-1 col-md-2 col-sm-12 forecast float-left";
 
             // date element
             var forecastDate = document.createElement("h5")
-            forecastDate.textContent = moment.unix(dailyForecast.dt).format("l");
+            forecastDate.textContent = moment.unix(dailyForecast.dt).format("dddd l");
             forecastDate.classLIst = "card-header text-center"
             forecastEl.appendChild(forecastDate)
 
@@ -170,13 +170,7 @@ $.ajax({
 
 }
 
-// function getFiveDay(city) {
-//     var APIKey = "6c07134d45d67e2aa2498bb5c00f8693"
-//     var fiveQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
- 
-//    // Logging the URL so we have access to it for troubleshooting
-//   console.log(fiveQueryURL)
-  
+
 }
 
 

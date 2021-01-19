@@ -26,7 +26,8 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-2 col-xs-12 p-2 search-column mt-2 " id="citySideBar">
+            <div class="col-lg-2 col-xs-12 p-2 search-column  " id="citySideBar">
+                <div class="card" id="citySideBar">
                 <form  id="city-search">
                    <h4>Search for a City:</h4> 
                    <div class="input-group mb-3">
@@ -36,8 +37,8 @@
                         </div>
                    </div>
                 </form>
-                <h4>Recent Searches:</h4>
                 <div id="searchHistoryList"></div>
+                </div>
             </div>
             <div class="container-fluid col-lg-9 col-xs-12">
                 <div class="row selected-city" id="current-conditions">
@@ -61,6 +62,11 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="bg-dark text-white fixed-bottom pt-3">
+            <p class="font-weight-light text-center" style="font-size:0.75rem;">Made by Carly Gouge 2021</p>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="assets/script.js"></script>
