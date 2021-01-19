@@ -3,7 +3,7 @@ $(document).ready(function () {
 const city = "";
 const searchHistoryList = document.querySelector("#searchHistoryList");
 
-
+init();
     // function to add buttons for recent searches
 function renderButtons() {
     searchHistoryList.innerHTML = "";
@@ -22,12 +22,16 @@ function renderButtons() {
 $(document).on('click', '.city-button', function() {
     searchCurrentWeather($(this).text());
 });    
-
-
-
     renderButtons();
+    function init() {
+        var storedsearchedCities = JSON.parse(
+        localStorage.getItem("citiesSearched")
+        );
+    
+        citiesSearched = storedsearchedCities
+    } 
 
-
+// event listener for search button
 $("#run-search").on("click", function(event) {
     event.preventDefault();
     var city = $("#city").val().trim();
@@ -42,17 +46,11 @@ $("#run-search").on("click", function(event) {
     citiesSearched.push(city);
     city.value="";
     function storesearchedCities() {
-        localStorage.setItem("citiesSearched", JSON.stringify(citiesSearched));
+        localStorage.setItem(citiesSearched, JSON.stringify(citiesSearched));
     }
     
-    function init() {
-        const storedsearchedCities = JSON.parse(
-        localStorage.getItem("citiesSearched")
-        );
-    
-        searchedCities = storedsearchedCities
-    } 
-    init();
+ 
+  
     storesearchedCities();
     renderButtons();
 });
