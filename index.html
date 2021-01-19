@@ -26,7 +26,7 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 p-2 search-column mt-2" id="citySideBar">
+            <div class="col-lg-2 col-xs-12 p-2 search-column mt-2 " id="citySideBar">
                 <form  id="city-search">
                    <h4>Search for a City:</h4> 
                    <div class="input-group mb-3">
@@ -39,9 +39,9 @@
                 <h4>Recent Searches:</h4>
                 <div id="searchHistoryList"></div>
             </div>
-            <div class="col-10 col-md-10">
-                <div class="row  selected-city" id="current-conditions">
-                    <div class="col-12">
+            <div class="container-fluid col-lg-9 col-xs-12">
+                <div class="row selected-city" id="current-conditions">
+                    <div class="col-lg-auto col-xs-12">
                         <h3 id="current-city"></h3>
                         <img id="wicon">
                         <div id="current-conditions-container" class="list-group">
@@ -52,9 +52,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row  mt-3" id="five-day">
+                <div class="row mt-3" id="five-day">
                     <h3 class="col-12" id="forecast"></h3>
-                    <div class="d-flex" id="five-day-container">
+                    <div class="d-flex flex-wrap justify-content-center" id="five-day-container">
                       <div id="day-1-temp"></div>
                     </div>
                 </div>
@@ -63,6 +63,6 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-    <script src="/assets/script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
