@@ -127,11 +127,11 @@ $.ajax({
             var dailyForecast = forecast[i]
 
             var forecastEl=document.createElement("div");
-            forecastEl.classList = "card text-light m-1 col-md-2 col-sm-12 forecast float-left";
+            forecastEl.classList = "card text-light mr-4 col-md-2 col-sm-12 forecast mb-3";
 
             // date element
             var forecastDate = document.createElement("h5")
-            forecastDate.textContent = moment.unix(dailyForecast.dt).format("dddd l");
+            forecastDate.textContent = moment.unix(dailyForecast.dt).format("ddd l");
             forecastDate.classLIst = "card-header text-center"
             forecastEl.appendChild(forecastDate)
 
