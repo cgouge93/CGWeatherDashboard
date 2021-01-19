@@ -1,14 +1,22 @@
- body{
+* {
+  box-sizing: border-box;
+}
+
+body{
    background:#4F5D75
  } 
+
+
 .jumbotron {
   padding:0.5%;
   border-radius:0;
   background:#2D3142 !important;
+  letter-spacing:0.3em;
+  
 }
 
 #city-search{
-  background:#EC6E4C;
+  background:#4F5D75;
   border-radius:10px;
   color:white;
   text-align: center;
